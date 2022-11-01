@@ -11,8 +11,25 @@
 <body>
     <script>
 
+        const NUM_OF_PRIMES = 1000000;
+        const primeNumbers = [2];
+        let num = 2;
 
+        const st = Date.now();
 
+        tag: while (primeNumbers.length < NUM_OF_PRIMES) {
+            num++
+            for (let i = 0, len = primeNumbers.length; i < len; i++) {
+                if (!(num % primeNumbers[i])) continue tag;
+                if (primeNumbers[i] ** 2 > num) break;
+            }
+            primeNumbers.push(num);
+        }
+
+        const ed = Date.now();
+        console.log(ed - st + "ms");
+
+        console.log(primeNumbers);
 
     </script>
 </body>
